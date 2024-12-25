@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<!--    <link rel="stylesheet" href="{% static 'mainpage/style/style.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'mainpage/style/media.css' %}">-->
+
+</head>
+<body>
+
+<header>
+  <div class="container-header">
+    <a href="{% url 'index' %}">Название вашего сайта</a>
+  </div>
+</header>
+
+<div class="dropdown">
+        <button class="dropbtn">Меню</button>
+        <div class="dropdown-content">
+            <a href="{% url 'statistics' %}">Общая статистика</a>
+            <a href="{% url 'relevance' %}">Востребованность</a>
+            <a href="{% url 'geography' %}">География</a>
+            <a href="{% url 'skills' %}">Навыки</a>
+            <a href="{% url 'last_vacancies' %}">Последние Вакансии</a>
+        </div>
+</div>
+
+
+{% block main_info %} {% endblock %}
+
+<footer>
+  <div class="footer-text">Чернаков Иван АТ-16</div>
+</footer>
+
+</body>
+</html>
