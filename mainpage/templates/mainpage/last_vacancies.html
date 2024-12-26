@@ -1,2 +1,23 @@
 {% extends "mainpage/base.html" %}
 {%  load static %}
+
+{% block main_info %}
+<h1> Последние Вакансии</h1>>
+<div class="row">
+
+    {% for vac in vacancies %}
+    <div class="job-listing">
+            <p >{{ vac.title }}</p>
+            <p class="job-description">{{ vac.description }}</p>
+            <p class="job-skills">{{ vac.skills }}</p>
+            <p class="job-company">{{ vac.company }}</p>
+            <p class="job-salary">{{ vac.salary_info }}</p>
+            <p class="job-location">{{ vac.region }}</p>
+            <p class="job-date">{{ vac.published_at }}</p>
+    </div>
+    {% endfor %}
+
+</div>>
+
+
+{% endblock %}

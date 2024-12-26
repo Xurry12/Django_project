@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from ulearnProject.parsing import get_vacs
 # Create your views here.
 
 def index(request):
@@ -15,7 +16,8 @@ def relevance(request):
     return render(request, 'mainpage/relevance.html')
 
 def last_vacancies(request):
-    return render(request, 'mainpage/last_vacancies.html')
+    vac = get_vacs()
+    return render(request, 'mainpage/last_vacancies.html', vac)
 
 def statistics(request):
     return render(request, 'mainpage/statistics.html')
