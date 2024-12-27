@@ -96,15 +96,6 @@ async def main():
     await asyncio.gather(*tasks)
 
 
-# if __name__ == '__main__':
-# asyncio.run(main())
-#
-# res = dict(sorted(
-#         result.items(),
-#         key=lambda item: item[1]['published_at']
-#     ))
-# print(res)
-
 def get_vacs():
     asyncio.run(main())
     res = dict(sorted(

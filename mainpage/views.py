@@ -1,10 +1,18 @@
 from django.shortcuts import render
+from matplotlib.style.core import context
 
 from ulearnProject.parsing import get_vacs
+from .models import Info, Statistics2, Statistics  # Analytics, AnalyticsStatistic
+
+
 # Create your views here.
 
 def index(request):
-    return render(request, 'mainpage/index.html')
+    context = {
+         'info':Info.objects.all()
+    }
+
+    return render(request, 'mainpage/index.html', context)
 
 def geography(request):
     return render(request, 'mainpage/geography.html')
@@ -20,4 +28,7 @@ def last_vacancies(request):
     return render(request, 'mainpage/last_vacancies.html', vac)
 
 def statistics(request):
-    return render(request, 'mainpage/statistics.html')
+    context = {
+        'info': Statistics.objects.all()
+    }
+    return render(request, 'mainpage/statistics.html', context)

@@ -2,22 +2,30 @@
 {%  load static %}
 
 {% block main_info %}
-<h1> Последние Вакансии</h1>>
+<h1> Последние Вакансии</h1>
+<style>
+    .container {
+        width: auto; /* Автоматическая ширина */
+        max-width: 100%; /* Ограничение максимальной ширины */
+        padding: 20px;
+        border: 1px solid #ccc; /* Для наглядности */
+    }
+</style>
 <div class="row">
 
     {% for vac in vacancies %}
-    <div class="job-listing">
-            <p >{{ vac.title }}</p>
-            <p class="job-description">{{ vac.description }}</p>
-            <p class="job-skills">{{ vac.skills }}</p>
-            <p class="job-company">{{ vac.company }}</p>
-            <p class="job-salary">{{ vac.salary_info }}</p>
-            <p class="job-location">{{ vac.region }}</p>
-            <p class="job-date">{{ vac.published_at }}</p>
+    <div class="container">
+            <p > Название: {{vac.title}}</p>
+            <p class="job-description">Описание: {{vac.description}}</p>
+            <p class="job-skills">Навыки: {{vac.skills}}</p>
+            <p class="job-company">Компания: {{vac.company}}</p>
+            <p class="job-salary">Вилка зарплат: {{vac.salary_info}}</p>
+            <p class="job-location">Регион: {{vac.region}}</p>
+            <p class="job-date">Дата публикации: {{vac.published_at}}</p>
     </div>
     {% endfor %}
 
-</div>>
+</div>
 
 
 {% endblock %}
