@@ -16,4 +16,32 @@
     {% endfor %}
 
 </div>
+
+<div>
+    <form method="GET">
+        {% csrf_token %}
+        <select name="years">
+            <option>
+                <button type="submit"> 2015</button>
+            </option>
+            <option>
+                <button type="submit"> 2016 </button>
+            </option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
+        </select>
+        {% for res in data%}
+            {{res.table}}
+            {{res.image}}
+        {% endfor %}
+    </form>
+
+
+</div>
 {% endblock %}

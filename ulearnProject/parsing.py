@@ -106,12 +106,4 @@ def get_vacs():
     return vacs
 
 get_vacs()
-    # for vac in result.values():
-    #     print(f"Название: {vac['title']}")
-    #     print(f"Описание: {vac['description']}")
-    #     print(f"Навыки: {vac['skills']}")
-    #     print(f"Компания: {vac['company']}")
-    #     print(f"Оклад: {vac['salary_info']}")
-    #     print(f"Регион: {vac['region']}")
-    #     print(f"Дата публикации: {vac['published_at']}")
-    #     print("-" * 40)
+

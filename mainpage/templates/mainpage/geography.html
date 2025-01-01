@@ -1,2 +1,18 @@
 {% extends "mainpage/base.html" %}
 {%  load static %}
+{% block main_info %}
+<div class="content">
+    {% for g in geo %}
+        <div>
+            <h1>{{ g.title }}</h1>
+            <p>{{ g.content|safe }}</p>
+            <img src="{{ g.picture.url }}"
+
+            sizes="(max-width: 480px) 100vw,
+                (max-width: 800px) 50vw,
+                33vw"> </img>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
