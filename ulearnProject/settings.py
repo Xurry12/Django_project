@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 from django.conf.global_settings import MEDIA_URL, MEDIA_ROOT, STATIC_URL, STATICFILES_DIRS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -139,12 +139,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     BASE_DIR / 'static'
-# )
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 
 MEDIA_URL = '/graphics_images/'
-MEDIA_ROOT = BASE_DIR / 'graphics_images'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'graphics_images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

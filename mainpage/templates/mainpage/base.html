@@ -3,43 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    {% load static %}
+    <!-- Подключите Bootstrap и jQuery, если нужно -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    {% load static %}  <!-- Загрузите тег static -->
+
     <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
-<!--    <link rel="stylesheet" href="{% static 'mainpage/style/style.css' %}">-->
-<!--    <link rel="stylesheet" href="{% static 'mainpage/style/media.css' %}">-->
-
+    <link href='https://fonts.googleapis.com/css?family=Tektur' rel='stylesheet'>
+    <link href="{% static 'mainpage/style/style.css' %}" rel="stylesheet">  <!-- Используйте тег static -->
 </head>
+
 <body>
-
-<header>
-  <div class=".header">
-    <a href="{% url 'index' %}">Название вашего сайта</a>
-  </div>
-</header>
-
-<div class="dropdown">
-        <button class="dropbtn">Меню</button>
-        <div class="dropdown-content">
-            <a href="{% url 'statistics' %}">Общая статистика</a>
-            <a href="{% url 'relevance' %}">Востребованность Аналитиков</a>
-            <a href="{% url 'geography' %}">География Аналитиков</a>
-            <a href="{% url 'skills' %}">Навыки Аналитиков</a>
-            <a href="{% url 'last_vacancies' %}">Последние Вакансии "Аналитик"</a>
+    <header>
+        <div class="header-div">
+            <a class="head-name" href="{% url 'index' %}">Аналитика без Фигни</a>
         </div>
-</div>
+        <div class="line"></div>
+    </header>
 
+    <main>
+        <div class="content">
+            <div class="content-2">
+                <div class="menu">
+                    <ul class="column">
+                        <li><a class="column-text" href="{% url 'statistics' %}">Общая статистика</a></li>
+                        <li><a class="column-text" href="{% url 'relevance' %}">Востребованность</a></li>
+                        <li><a class="column-text" href="{% url 'geography' %}">География</a></li>
+                        <li><a class="column-text" href="{% url 'skills' %}">Навыки</a></li>
+                        <li><a class="column-text" href="{% url 'last_vacancies' %}">Вакансии</a></li>
+                    </ul>
+                </div>
+            </div>
 
-{% block main_info %}
+            <div class="main-content">
+                {% block main_info %}
+                {% endblock %}
+            </div>
+        </div>
 
-{% endblock %}
-
-<footer>
-  <div class="footer-text">Чернаков Иван АТ-16</div>
-</footer>
-
+        <div class="footer-div">
+            <p>Чернаков Иван Сергеевич РИ-230911</p>
+        </div>
+    </main>
 </body>
 </html>

@@ -28,9 +28,10 @@
 
                 if (filteredEntries.length > 0) {
                     filteredEntries.forEach(function(entry) {
+                        console.log(entries);
                         resultDiv.append('<h3>' + entry.year + '</h3>');
                         resultDiv.append('<div>' + entry.table + '</div>');
-                        resultDiv.append('<img src="' + entry.image + '" alt="Image" style="max-width: 100%; height: auto;">');
+                        resultDiv.append('<img src="'{{ MEDIA_URL }}+ entry.image +'" alt="Image" style="max-width: 100%; height: auto;">');
                     });
                 } else {
                     resultDiv.append('<p>Нет данных для выбранного года.</p>');

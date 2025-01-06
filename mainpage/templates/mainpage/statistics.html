@@ -18,30 +18,42 @@
 </div>
 
 <div>
-    <form method="GET">
-        {% csrf_token %}
-        <select name="years">
-            <option>
-                <button type="submit"> 2015</button>
-            </option>
-            <option>
-                <button type="submit"> 2016 </button>
-            </option>
-            <option>2017</option>
-            <option>2018</option>
-            <option>2019</option>
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-            <option>2023</option>
-            <option>2024</option>
-        </select>
-        {% for res in data%}
-            {{res.table}}
-            {{res.image}}
+    <select id="year-select">
+        <option value="">Выберите год</option>
+        {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
         {% endfor %}
-    </form>
+    </select>
 
+    <div id="result"></div>
 
+    <script>
+        $(document).ready(function() {
+            $('#year-select').change(function() {
+                var selectedYear = $(this).val();
+                var entries = {{ top20_entries|safe }}; // Передаем данные из Django в JS
+
+                // Фильтруем записи по выбранному году
+                var filteredEntries = entries.filter(function(entry) {
+                    return entry.year == selectedYear;
+                });
+
+                // Обновляем контейнер с результатами
+                var resultDiv = $('#result');
+                resultDiv.empty(); // Очищаем предыдущие результаты
+
+                if (filteredEntries.length > 0) {
+                    filteredEntries.forEach(function(entry) {
+                        console.log(entries);
+                        resultDiv.append('<h3>' + entry.year + '</h3>');
+                        resultDiv.append('<div>' + entry.table + '</div>');
+                        resultDiv.append('<img src="'{{ MEDIA_URL }}+ entry.image +'" alt="Image" style="max-width: 100%; height: auto;">');
+                    });
+                } else {
+                    resultDiv.append('<p>Нет данных для выбранного года.</p>');
+                }
+            });
+        });
+    </script>
 </div>
 {% endblock %}
