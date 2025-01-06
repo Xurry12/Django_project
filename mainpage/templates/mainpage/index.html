@@ -2,17 +2,13 @@
 {%  load static %}
 
 {% block main_info %}
-<div class="content">
+<div class="main-content">
 
     {% for analytic in info %}
     <div>
-        <h1>{{ analytic.name }}</h1>
+        <h1 class = "page-header">{{ analytic.name }}</h1>
         <div>{{ analytic.description|safe }}</div>
-        <img src="{{ analytic.image.url }}"
-
-        sizes="(max-width: 480px) 100vw,
-            (max-width: 800px) 50vw,
-            33vw"> </img>
+        <img class = "content-image" src="{{ analytic.image.url }}">
     </div>
     {% endfor %}
 

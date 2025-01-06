@@ -1,32 +1,30 @@
 {% extends "mainpage/base.html" %}
 {%  load static %}
 {% block main_info %}
-<div class="content">
+
+
+
+<div class="main-content">
+    <h1 class = "page-header">Общая статистика</h1>
 
     {% for analytic in info %}
-    <div>
-        <h1>{{ analytic.title }}</h1>
-        <p>{{ analytic.content|safe }}</p>
-        <img src="{{ analytic.picture.url }}"
 
-        sizes="(max-width: 480px) 100vw,
-            (max-width: 800px) 50vw,
-            33vw"> </img>
+    <h1 class = "content-header">{{ analytic.title }}</h1>
+    <div class="static-block">
+        <p class="table">{{ analytic.content|safe }}</p>
+        <img class = "diagram" src="{{ analytic.picture.url }}">
     </div>
     {% endfor %}
 
-</div>
-
-<div>
     <select id="year-select">
-        <option value="">Выберите год</option>
-        {% for year in years %}
-            <option value="{{ year }}">{{ year }}</option>
-        {% endfor %}
+        <option value="" class="option">Выберите год</option>
+            {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
     </select>
-
-    <div id="result"></div>
-
+    <div class="static-block">
+        <div id="result"></div>
+    </div>
     <script>
         $(document).ready(function() {
             $('#year-select').change(function() {
@@ -44,11 +42,11 @@
 
                 if (filteredEntries.length > 0) {
                     filteredEntries.forEach(function(entry) {
-                        console.log(entries);
-                        resultDiv.append('<h3>' + entry.year + '</h3>');
-                        resultDiv.append('<div>' + entry.table + '</div>');
-                        resultDiv.append('<img src="'{{ MEDIA_URL }}+ entry.image +'" alt="Image" style="max-width: 100%; height: auto;">');
-                    });
+                        resultDiv.append('<div class="static-block">' +
+                           '<div class="table">' + entry.table + '</div>' +
+                                     '<img class = "diagram" src="{{ MEDIA_URL }} ' + entry.image + '" alt="Image">' +
+                           '</div>');
+                });
                 } else {
                     resultDiv.append('<p>Нет данных для выбранного года.</p>');
                 }

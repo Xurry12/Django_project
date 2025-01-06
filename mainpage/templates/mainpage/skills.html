@@ -1,16 +1,15 @@
 {% extends "mainpage/base.html" %}
 {%  load static %}
-
 {% block main_info %}
-<select id="year-select">
-        <option value="">Выберите год</option>
-        {% for year in years %}
-            <option value="{{ year }}">{{ year }}</option>
-        {% endfor %}
+<div class="main-content">
+    <h1 class = "page-header">Навыки</h1>
+    <select id="year-select">
+            <option value="">Выберите год</option>
+            {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
     </select>
-
     <div id="result"></div>
-
     <script>
         $(document).ready(function() {
             $('#year-select').change(function() {
@@ -28,15 +27,16 @@
 
                 if (filteredEntries.length > 0) {
                     filteredEntries.forEach(function(entry) {
-                        console.log(entries);
-                        resultDiv.append('<h3>' + entry.year + '</h3>');
-                        resultDiv.append('<div>' + entry.table + '</div>');
-                        resultDiv.append('<img src="'{{ MEDIA_URL }}+ entry.image +'" alt="Image" style="max-width: 100%; height: auto;">');
-                    });
+                        resultDiv.append('<div class="static-block">' +
+                           '<div class="table">' + entry.table + '</div>' +
+                                     '<img class = "diagram" src="{{ MEDIA_URL }} ' + entry.image + '" alt="Image">' +
+                           '</div>');
+                });
                 } else {
                     resultDiv.append('<p>Нет данных для выбранного года.</p>');
                 }
             });
         });
     </script>
+</div>
 {% endblock %}

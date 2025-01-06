@@ -1,16 +1,15 @@
 {% extends "mainpage/base.html" %}
 {%  load static %}
 {% block main_info %}
-<div class="content">
+<div class="main-content">
+    <h1 class = "page-header">Востребованность</h1>
     {% for inf in info %}
         <div>
-            <h1>{{ inf.title }}</h1>
-            <p>{{ inf.content|safe }}</p>
-            <img src="{{ inf.picture.url }}"
-
-            sizes="(max-width: 480px) 100vw,
-                (max-width: 800px) 50vw,
-                33vw"> </img>
+            <h1 class = "content-header">{{ inf.title }}</h1>
+            <div  class="static-block">
+                <p class="table">{{ inf.content|safe }}</p>
+                <img class = "diagram" src="{{ inf.picture.url }}">
+            </div>
         </div>
     {% endfor %}
 

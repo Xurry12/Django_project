@@ -20,6 +20,13 @@ main{
     margin: 0;
 }
 
+.page-header{
+    font-family: 'Tektur';
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 44px;
+}
+
 .header-div{
     background-color: #6FD976;
     position:fixed;
@@ -65,7 +72,7 @@ main{
     flex-direction: row;
     justify-content:flex-start;
     margin: 0;
-    padding-top: 89px;
+    margin-top: 59px;
 
 }
 
@@ -83,6 +90,8 @@ main{
     padding: 0 20px;
     background: linear-gradient(to bottom, #6FD976, #4CEAC2);
     height: 100vh;
+    margin-top: 30px;
+    padding-top: 15px;
 }
 
 ul{
@@ -98,11 +107,76 @@ ul{
 }
 
 .main-content{
-    padding-left: 50px;
-    padding-top: 40px;
+    margin: 0;
+    padding-left: 140px;
+    padding-right: 30px;
     font-size: 18px;
     line-height: 23px;
-    margin-left: 220px;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.result{
+    padding-top: 30px;
+}
+
+.content-image{
+    width: 100%;
+    margin-bottom: 40px;
+    padding-right: 25px;
+    margin-top: 20px;
+}
+
+.content-header{
+    font-family: 'Tektur';
+    padding-top: 10px;
+    padding-bottom: 13px;
+    font-size: 32px;
+}
+
+.static-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+select{
+    background-color: #4CEAC2;
+    margin-top: 15px;
+    height: max-content;
+    width: max-content;
+    font-family: 'Tektur';
+    font-size: 20px;
+    color: #000F4C;
+    padding: 10px;
+    border: 2px solid #000F4C;
+    border-radius: 3px;
+}
+
+option{
+    background-color: #F1F1F1;
+    color: #000F4C;
+}
+
+.table{
+    flex:1;
+    border: black;
+}
+
+.diagram{
+    height: 100%;
+    width: 80%
+}
+
+.container-vacancies{
+    width: auto;
+    max-width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 
 .footer-div{
@@ -118,4 +192,5 @@ ul{
     padding-left: 15px;
     padding-top: 8px;
     z-index: 1000;
+    margin-top: 25px;
 }
