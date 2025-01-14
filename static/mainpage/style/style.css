@@ -10,6 +10,7 @@ body {
     line-height: 35px;
     color: #000F4C;
     background-color: #F1F1F1;
+    width: 100%
 
 }
 
@@ -172,7 +173,7 @@ option{
 
 .diagram{
     height: 100%;
-    width: 80%
+    width: 75%
 }
 
 .container-vacancies{
